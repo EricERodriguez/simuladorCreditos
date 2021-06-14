@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import SliderAmount from "./SliderAmount";
 import SliderMonth from "./SliderMonth";
 import { Container , Row, Col, Form} from 'react-bootstrap';
-// import Container from 'react-bootstrap/Container'
 import Stuffed from "./Stuffed";
+
+import '../css/App.css';
 
 class Simulador extends Component{
 
@@ -13,10 +14,10 @@ class Simulador extends Component{
 
         //IMP es el interes mensual porcentual = IM / 100 para que me de el float para multiplicar por el monto a retirar - amount es el monto total a sacar - month son los meses que establece el cliente - total esel monto mas los interes - fee es el pago mensual
 
-        let IMP = this.props.IM / 100;
+        let IMP = this.props.IM /100;
         let amount = this.props.valueA;
         let month = this.props.valueM;
-        let total = amount+((amount*IMP)*month);
+        let total = amount+((amount*IMP)*month) ;
         let fee = total / month;
 
 
@@ -54,6 +55,8 @@ class Simulador extends Component{
             console.log('EVENT TIME: ' + this.getNewDate());
             console.log('NEW ACTION DETECTED: ID - '+e.target.id + ': has been changed. New value: '+ e.target.value+' months');
         }
+
+
         this.calculate(changedID, value);
     }
 
@@ -80,7 +83,8 @@ class Simulador extends Component{
         if (id === 'sliderMonth') {
             month = parseFloat(value);
             amount = parseFloat(this.state.valueAmount);
-        }else if (id === 'sliderAmount'){
+        }
+        else if (id === 'sliderAmount'){
             amount = parseFloat(value);
             month = parseFloat(this.state.valueMonth);
         }
@@ -101,10 +105,10 @@ class Simulador extends Component{
     }
 
 
-render()
+    render()
     {
         return(
-            <Container  className="show-Container  mainContainer">
+            <Container className="show-Container mainContainer">
                 <Row>
                     <Col className="leftSide" xs={12} md={6}>
                         <Form horizontal>
@@ -124,41 +128,19 @@ render()
                                 step={this.state.stepMonth}
                             />
                         </Form>
-                         <Stuffed
+                        <Stuffed
                         symbol={this.props.symbol}
                         amount={this.state.amountToRepay}
                         fee={this.state.feeInst}
                     />
                     </Col>
 
-                   
                </Row>
-            </Container >
+            </Container>
         );
     }
 }
-// Defino lo tipos para las propiedades
 
-// Simulador.propTypes = {
-//     // Slider meses
-//     valueM: React.PropTypes.number,
-//     stepM: React.PropTypes.number,
-//     maxM: React.PropTypes.number,
-//     minM: React.PropTypes.number,
-
-//     //Slider monto total
-//     valueA : React.PropTypes.number,
-//     stepA : React.PropTypes.number,
-//     maxA : React.PropTypes.number,
-//     minA : React.PropTypes.number,
-
-//     //int mensuales
-//     IM: React.PropTypes.number,
-
-//     //simbolo moneda
-//     symbol: React.PropTypes.string,
-
-// };
 
 //defino propiedades por default
 Simulador.defaultProps = {

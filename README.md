@@ -1,1 +1,1 @@
-# Simulador de creditos React
+# Simulador de créditos React
