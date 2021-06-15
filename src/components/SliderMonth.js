@@ -9,7 +9,7 @@ class SliderMonth extends Component {
                 <Row>
                     <Col  sm={2}>
                         <Row>
-                            <Col className="labelSlider" sm={5}>
+                            <Col className="labelSlider" >
                                 <h1>
                                     <Badge variant="secondary">Plazo</Badge>
                                 </h1>

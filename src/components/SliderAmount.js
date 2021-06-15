@@ -12,7 +12,7 @@ class SliderAmount extends Component {
                 <Row>
                     <Col  sm={2}>
                         <Row>
-                            <Col className="labelSlider" sm={5}>
+                            <Col className="labelSlider" >
                                 <h1>
                                     <Badge variant="secondary">Monto Total</Badge>
                                 </h1>
@@ -22,7 +22,7 @@ class SliderAmount extends Component {
 
                     <Col>
                     
-                        <Card style={{ width: '11.2rem', height: '2rem', }} id="divCardRight">
+                        <Card style={{ width: '10rem', height: '2rem', }} id="divCardRight">
                             <div id="amountValueDisplay">{this.props.symbol}{this.props.value}</div>
                         </Card>
                         <input
